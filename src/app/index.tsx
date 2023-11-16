@@ -1,9 +1,10 @@
-import { Box, Container, ThemeProvider } from '@mui/material'
+import { Box, ThemeProvider } from '@mui/material'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import React, { Suspense, lazy } from 'react'
 
+import Header from './components/Header'
 import { Provider } from 'react-redux'
-import Search from './components/Search'
+import { RecoilRoot } from 'recoil'
 import Spinner from 'react-spinner'
 import store from './store'
 import theme from './styles/theme'
@@ -16,12 +17,12 @@ const PageNotFound = lazy(() => import('./pages/404'))
 const App: React.FunctionComponent = () => {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <BrowserRouter>
-            <Box color="white" minHeight="100vh">
-              <Container>
-                <Search />
+      <RecoilRoot>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <BrowserRouter>
+              <Box color="white" minHeight="100vh">
+                <Header />
                 <Suspense
                   fallback={
                     <Box
@@ -46,11 +47,11 @@ const App: React.FunctionComponent = () => {
                     <Route element={<PageNotFound />} />
                   </Routes>
                 </Suspense>
-              </Container>
-            </Box>
-          </BrowserRouter>
-        </Provider>
-      </ThemeProvider>
+              </Box>
+            </BrowserRouter>
+          </Provider>
+        </ThemeProvider>
+      </RecoilRoot>
     </>
   )
 }

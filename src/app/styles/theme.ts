@@ -10,6 +10,9 @@ const theme = createTheme({
       xl: 1920,
     },
   },
+  typography: {
+    fontFamily: 'Roboto, Arial',
+  },
   palette: {
     common: {
       black: '#181818',

@@ -1,44 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import { Alert, Snackbar } from '@mui/material'
+import React, { useState } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-interface Props {
+interface ErrorToastProps {
   message: string
 }
 
-const ErrorToast: React.FunctionComponent<Props> = (props) => {
-  const { message } = props
+const ErrorToast: React.FC<ErrorToastProps> = ({ message }) => {
+  const [open, setOpen] = React.useState(true)
   const { t } = useTranslation(['common'])
   const [show, setShow] = useState(true)
 
-  useEffect(() => {
-    setTimeout(() => {
-      setShow(false)
-    }, 3000)
-  }, [setShow])
+  const handleClick = () => {
+    setOpen(true)
+  }
 
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpen(false)
+  }
   return (
     <>
       {show && (
-        <div>
-          <div
-          //fit
-          // dangerouslySetInlineStyle={{
-          //   __style: {
-          //     bottom: 50,
-          //     left: '50%',
-          //     transform: 'translateX(-50%)',
-          //   },
-          // }}
-          // paddingX={1}
-          // position="fixed"
-          >
-            {/* <Toast
-              variant="error"
-              text={<>{t(`common:errors.${message}`)}</>}
-            /> */}
-          </div>
-        </div>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+            {t(`common:errors.${message}`)}
+          </Alert>
+        </Snackbar>
       )}
     </>
   )

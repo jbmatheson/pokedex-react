@@ -7,11 +7,13 @@ const PageNotFound: React.FunctionComponent = () => {
 
   return (
     <Box
-    // height="80vh"
-    // display="flex"
-    // alignItems="center"
-    // justifyContent="center"
-    // direction="column"
+      sx={{
+        height: '80vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+      }}
     >
       <div>404</div>
 

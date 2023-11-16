@@ -3,11 +3,12 @@ import {
   FETCH_POKEMON_REQUEST,
   FETCH_POKEMON_SUCCESS,
 } from '../../constants/pokemon.constants'
-import React, { Suspense, lazy, useCallback, useEffect } from 'react'
+import React, { Fragment, Suspense, lazy, useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Box } from '@mui/material'
 import { RootState } from '../../reducers'
+import Spinner from 'react-spinner'
 import { fetchPokemonAction } from '../../actions/pokemon.action'
 import isEmpty from 'lodash/isEmpty'
 import { useParams } from 'react-router-dom'
@@ -20,7 +21,6 @@ const ErrorToast = lazy(() => import('../../components/ErrorToast'))
 const PokemonPage: React.FunctionComponent = () => {
   const { t } = useTranslation(['common'])
   const dispatch = useDispatch()
-  // @ts-ignore
   const { slug } = useParams<{ slug: string }>()
 
   const { pokemon, error, loading } = useSelector((state: RootState) => ({
@@ -58,22 +58,24 @@ const PokemonPage: React.FunctionComponent = () => {
   }, [handleFetch])
 
   return (
-    <>
-      <Box paddingY={1}>
+    <Fragment>
+      <Box sx={{ padding: { xs: '0', lg: '1rem' }, display: 'flex', justifyContent: 'center' }}>
         {error && !loading && (
           <Suspense
             fallback={
               <Box
-              // position="fixed"
-              // display="flex"
-              // alignItems="center"
-              // justifyContent="center"
-              // top
-              // left
-              // right
-              // bottom
+                sx={{
+                  position: 'fixed',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
               >
-                {/* <Spinner  show /> */}
+                <Spinner />
               </Box>
             }
           >
@@ -85,16 +87,18 @@ const PokemonPage: React.FunctionComponent = () => {
           <Suspense
             fallback={
               <Box
-              // position="fixed"
-              // display="flex"
-              // alignItems="center"
-              // justifyContent="center"
-              // top
-              // left
-              // right
-              // bottom
+                sx={{
+                  position: 'fixed',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
               >
-                {/* <Spinner  show /> */}
+                <Spinner />
               </Box>
             }
           >
@@ -104,17 +108,19 @@ const PokemonPage: React.FunctionComponent = () => {
 
         {loading && (
           <Box
-          // height="80vh"
-          // display="flex"
-          // alignItems="center"
-          // justifyContent="center"
-          // direction="column"
+            sx={{
+              height: '80vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+            }}
           >
-            {/* <Spinner show={loading} /> */}
+            <Spinner />
           </Box>
         )}
       </Box>
-    </>
+    </Fragment>
   )
 }
 

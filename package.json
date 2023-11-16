@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit && eslint \"**/*.ts{,x}\"",
     "lint:fix": "tsc --noEmit && eslint \"**/*.ts{,x}\" --fix",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -46,6 +46,8 @@
     "react-scripts": "5.0.1",
     "react-share": "^4.4.1",
     "react-spinner": "^0.2.7",
+    "recoil": "^0.7.7",
+    "recoil-persist": "^5.1.0",
     "redux": "^4.2.1",
     "styled-components": "^6.1.1",
     "typescript": "^5.2.2",

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Divider, Grid } from '@mui/material'
 
 import React from 'react'
 
@@ -7,44 +7,62 @@ interface IProps {
   name: string
 }
 
-const SpriteBox: React.FunctionComponent<IProps> = (props) => {
+export const SpriteBox: React.FunctionComponent<IProps> = (props) => {
   const { id, name } = props
   const [itemIndex, setItemIndex] = React.useState(0)
 
-  const normaSpriteFront = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
-  const normaSpriteBack = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`
-  const shinySpriteFront = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`
-  const shinySpriteBack = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/${id}.png`
-
-  // const segmentedControlProps: SegmentedControlProps = {
-  //   items: ['Normal', 'Shiny'],
-  //   selectedItemIndex: itemIndex,
-  //   onChange: ({activeIndex}) => setItemIndex(activeIndex),
-  // }
+  const normalSpriteFront = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+  const normalSpriteBack = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`
 
   return (
-    // <Box margin={1} padding={2} rounding={2} borderStyle="sm">
-    <Box>
-      {itemIndex === 0 ? (
-        <Box padding={3} display="flex" justifyContent="around">
-          {/* <Column span={4}>
-            <Avatar name={`${name}-normal-front`} src={normaSpriteFront} />
-          </Column>
-          <Column span={4}>
-            <Avatar name={`${name}-normal-back`} src={normaSpriteBack} />
-          </Column> */}
+    <Box
+      sx={{
+        margin: { xs: '0 1rem', lg: '1rem 1rem 1rem 0' },
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: 'white',
+        borderRadius: '1rem',
+        width: { xs: 'calc(100% - 2rem)', lg: 'auto' },
+      }}
+    >
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box
+          sx={{
+            fontSize: '1.5rem',
+            display: 'flex',
+            alignSelf: { xs: 'center', lg: 'flex-end' },
+            fontWeight: 'bold',
+            padding: '0.5rem 1rem 0 0 ',
+          }}
+        >
+          Sprites
         </Box>
-      ) : (
-        <Box padding={3} display="flex" justifyContent="around">
-          {/* <Column span={4}>
-            <Avatar name={`${name}-shiny-front`} src={shinySpriteFront} />
-          </Column>
-          <Column span={4}>
-            <Avatar name={`${name}-shiny-back`} src={shinySpriteBack} />
-          </Column> */}
+
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingX: '1rem',
+          }}
+        >
+          <Box sx={{ fontSize: '1rem', display: 'flex' }}>Front</Box>
+          <Box sx={{ fontSize: '1rem', display: 'flex' }}>Back</Box>
         </Box>
-      )}
-      {/* <SegmentedControl {...segmentedControlProps} /> */}
+      </Box>
+
+      <Divider sx={{ borderColor: 'rgba(0,0,0,.5' }} />
+
+      <Box sx={{ padding: '1.5rem', display: 'flex', justifyContent: 'space-around' }}>
+        <Grid container spacing={2}>
+          <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box component="img" src={normalSpriteFront} />
+          </Grid>
+          <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box component="img" src={normalSpriteBack} />
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   )
 }

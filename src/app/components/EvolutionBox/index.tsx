@@ -1,4 +1,4 @@
-import { Avatar, Box } from '@mui/material'
+import { Box, Divider } from '@mui/material'
 
 import React from 'react'
 import RouterLink from '../RouterLink'
@@ -31,38 +31,59 @@ const EvolutionBox: React.FunctionComponent<IProps> = (props) => {
   )
 
   return (
-    // <Box margin={1} rounding={2} borderStyle="sm">
-    <Box>
-      <Box padding={3}>
-        <div>{t('common:evolution-chain')}</div>
-      </Box>
+    <Box
+      sx={{
+        margin: { xs: '1rem 0', lg: '0 1rem' },
+        borderRadius: '1rem',
+        backgroundColor: '#fff',
+        display: 'flex',
+        flexDirection: 'column',
+        alignSelf: { xs: 'center', lg: 'flex-end' },
+        width: { xs: 'calc(100% - 2rem)', lg: 'auto' },
+        flex: { xs: 1, lg: 0 },
+      }}
+    >
       <Box
-      // display="flex"
-      // direction="row"
-      // paddingX={1}
-      // paddingY={2}
-      // justifyContent="around"
-      // alignItems="center"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '0.5rem 1rem',
+          alignItems: { xs: 'center', lg: 'flex-end' },
+        }}
       >
-        <div>
-          <RouterLink to={`/pokemon/${species}/`}>
-            <Box
-            // margin={1}
-            // rounding={2}
-            // borderStyle="sm"
-            // display="flex"
-            // alignItems="center"
-            >
-              <Box padding={2}>
-                <Avatar />
-                {/* <Avatar name={species} src={speciesImage} size="sm" /> */}
-              </Box>
-              <Box flex="grow" padding={2}>
-                <div>{capitalize(species)}</div>
-              </Box>
+        <Box sx={{ fontSize: '1.5rem', display: 'flex', fontWeight: 'bold' }}>
+          {t('common:evolution-chain')}
+        </Box>
+
+        <Box sx={{ fontSize: '1rem', display: 'flex' }}>{t('common:click-evolution-chain')}</Box>
+      </Box>
+      <Divider sx={{ borderColor: 'rgba(0,0,0,.5' }} />
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          paddingY: '0.5rem',
+          paddingX: '1rem',
+          alignItems: 'center',
+        }}
+      >
+        <RouterLink to={`/pokemon/${species}/`}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              margin: '0.5rem',
+              borderRadius: '1rem',
+              border: '1px solid #555',
+              ':hover': { backgroundColor: 'rgba(0,0,0,.2)' },
+            }}
+          >
+            <Box sx={{ padding: { xs: '0.25rem', lg: '1rem' } }}>
+              <Box component="img" src={speciesImage} />
+              <div>{capitalize(species)}</div>
             </Box>
-          </RouterLink>
-        </div>
+          </Box>
+        </RouterLink>
         {!isEmpty(evolvesToList) && (
           <div>
             {evolvesToList.map((evolution: any) => {
@@ -74,22 +95,17 @@ const EvolutionBox: React.FunctionComponent<IProps> = (props) => {
               return (
                 <RouterLink key={evolutionName} to={`/pokemon/${evolutionName}/`}>
                   <Box
-                  // margin={1}
-                  // key={evolutionName}
-                  // rounding={2}
-                  // borderStyle="sm"
-                  // display="flex"
-                  // alignItems="center"
+                    sx={{
+                      margin: '0.5rem',
+                      borderRadius: '1rem',
+                      border: '1px solid #555',
+                      ':hover': { backgroundColor: 'rgba(0,0,0,.2)' },
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
                   >
-                    <Box padding={2}>
-                      <Avatar
-                      // name={evolutionName}
-                      // src={evolutionImage}
-                      // size="sm"
-                      />
-                      <Avatar />
-                    </Box>
-                    <Box flex="grow" padding={2}>
+                    <Box sx={{ padding: { xs: '0.25rem', lg: '1rem' } }}>
+                      <Box component="img" src={evolutionImage} />
                       <div>{capitalize(evolutionName)}</div>
                     </Box>
                   </Box>
@@ -110,21 +126,17 @@ const EvolutionBox: React.FunctionComponent<IProps> = (props) => {
                 return (
                   <RouterLink key={evolutionName} to={`/pokemon/${evolutionName}/`}>
                     <Box
-                    // margin={1}
-                    // rounding={2}
-                    // borderStyle="sm"
-                    // display="flex"
-                    // alignItems="center"
+                      sx={{
+                        margin: '0.5rem',
+                        borderRadius: '1rem',
+                        border: '1px solid #555',
+                        ':hover': { backgroundColor: 'rgba(0,0,0,.2)' },
+                        display: 'flex',
+                        alignItems: 'center',
+                      }}
                     >
-                      <Box padding={2}>
-                        <Avatar
-                        // name={evolutionName}
-                        // src={evolutionImage}
-                        // size="sm"
-                        />
-                        <Avatar />
-                      </Box>
-                      <Box flex="grow" padding={2}>
+                      <Box sx={{ padding: { xs: '0.25rem', lg: '1rem' } }}>
+                        <Box component="img" src={evolutionImage} />
                         <div>{capitalize(evolutionName)}</div>
                       </Box>
                     </Box>

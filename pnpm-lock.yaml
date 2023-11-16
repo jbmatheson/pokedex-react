@@ -74,6 +74,9 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
+  mui-segmented-control:
+    specifier: ^1.1.6
+    version: 1.1.6(@material-ui/core@4.12.4)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -104,6 +107,12 @@ dependencies:
   react-spinner:
     specifier: ^0.2.7
     version: 0.2.7(react@18.2.0)
+  recoil:
+    specifier: ^0.7.7
+    version: 0.7.7(react-dom@18.2.0)(react@18.2.0)
+  recoil-persist:
+    specifier: ^5.1.0
+    version: 5.1.0(recoil@0.7.7)
   redux:
     specifier: ^4.2.1
     version: 4.2.1
@@ -6569,6 +6578,10 @@ packages:
       duplexer: 0.1.2
     dev: false
 
+  /hamt_plus@1.0.2:
+    resolution: {integrity: sha512-t2JXKaehnMb9paaYA7J0BX8QQAY8lwfQ9Gjf4pg/mk4krt+cmwmU652HOoWonf+7+EQV97ARPMhhVgU1ra2GhA==}
+    dev: false
+
   /handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
     dev: false
@@ -8341,6 +8354,18 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: false
 
+  /mui-segmented-control@1.1.6(@material-ui/core@4.12.4)(react@18.2.0):
+    resolution: {integrity: sha512-0/ZPY23swhD7RRXV2r/DlLfxDo//z3E3pin22CYlzozfgCBYipotbSzHd0gVAHTx1BV5ocKmNmenVjziUI/z/A==}
+    peerDependencies:
+      '@material-ui/core': ^4.0.0
+      react: '>= 16.8.1'
+    dependencies:
+      '@material-ui/core': 4.12.4(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      classnames: 2.3.2
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
   /multicast-dns@7.2.5:
     resolution: {integrity: sha512-2eznPJP8z2BFLX50tf0LuODrpINqP1RVIm/CObbTcBRITQgmC/TjcREF1NeTBzIcR5XO/ukWo+YHOjBbFwIupg==}
     hasBin: true
@@ -10068,6 +10093,31 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: false
+
+  /recoil-persist@5.1.0(recoil@0.7.7):
+    resolution: {integrity: sha512-sew4k3uBVJjRWKCSFuBw07Y1p1pBOb0UxLJPxn4G2bX/9xNj+r2xlqYy/BRfyofR/ANfqBU04MIvulppU4ZC0w==}
+    peerDependencies:
+      recoil: ^0.7.2
+    dependencies:
+      recoil: 0.7.7(react-dom@18.2.0)(react@18.2.0)
+    dev: false
+
+  /recoil@0.7.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8Og5KPQW9LwC577Vc7Ug2P0vQshkv1y3zG3tSSkWMqkWSwHmE+by06L8JtnGocjW6gcCvfwB3YtrJG6/tWivNQ==}
+    peerDependencies:
+      react: '>=16.13.1'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      hamt_plus: 1.0.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /recursive-readdir@2.2.3:

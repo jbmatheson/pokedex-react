@@ -9,13 +9,23 @@ const FlavorTextBox: React.FunctionComponent<IProps> = (props) => {
   const { flavorText } = props
 
   return (
-    <>
-      <Box
-        sx={{ margin: '0.24rem', borderRadius: '.5rem', paddingX: '0.35rem', paddingY: '0.45rem' }}
-      >
-        <div>{flavorText}</div>
-      </Box>
-    </>
+    <Box
+      sx={{
+        fontSize: '1rem',
+        textAlign: 'center',
+        display: 'flex',
+        alignSelf: 'center',
+        fontStyle: 'italic',
+        backgroundColor: 'white',
+        padding: { xs: '4rem 1rem 1rem', lg: '1rem 1rem 1rem' },
+        borderBottomLeftRadius: '1rem',
+        borderBottomRightRadius: '1rem',
+        flexWrap: 'wrap',
+        maxWidth: { lg: '75%' },
+      }}
+    >
+      {flavorText}
+    </Box>
   )
 }
 

@@ -1,8 +1,9 @@
-import { Box, Grid } from '@mui/material'
-import React, { Fragment, createRef } from 'react'
+import { Box, Button, Container, Grid, Stack } from '@mui/material'
+import React, { createRef } from 'react'
 
 import { Pokemon } from '../../types/pokemon.types'
 import PokemonCard from '../PokemonCard'
+import Spinner from 'react-spinner'
 
 interface IProps {
   pokemons: Pokemon[]
@@ -15,21 +16,46 @@ const PokemonGrid: React.FunctionComponent<IProps> = (props) => {
   const scrollContainerRef = createRef<HTMLDivElement>()
 
   return (
-    <Fragment>
+    <Container sx={{ paddingX: '1rem', width: '100%', display: 'flex', justifyContent: 'center' }}>
       {loading ? (
-        <Box paddingY={6}>{/* <Spinner ={loading} /> */}</Box>
-      ) : (
-        <Box maxHeight="80vh" ref={scrollContainerRef} overflow="auto">
-          <Grid container spacing={2}>
-            {pokemons.map((pokemon, index) => (
-              <Grid key={index} item xs={12} sm={6} md={4} lg={3} xl={2}>
-                <PokemonCard pokemon={pokemon} />
-              </Grid>
-            ))}
-          </Grid>
+        <Box sx={{ paddingY: '3rem' }}>
+          <Spinner />
         </Box>
+      ) : (
+        <Stack sx={{ flexDirection: 'column', gap: '1rem', marginTop: '2.5rem' }}>
+          <Box
+            sx={{
+              maxHeight: '70vh',
+              overflow: 'auto',
+              display: 'flex',
+              justifyContent: 'center',
+              maxWidth: '80rem',
+              scrollbarWidth: 'none',
+              '&::-webkit-scrollbar': {
+                display: 'none',
+              },
+            }}
+            ref={scrollContainerRef}
+          >
+            <Grid container spacing={2}>
+              {pokemons.map((pokemon, index) => (
+                <Grid key={index} item xs={6} lg={4} xl={3}>
+                  <PokemonCard pokemon={pokemon} />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={loadItems}
+            sx={{ alignSelf: 'center', marginTop: '1rem', marginBottom: '2.5rem' }}
+          >
+            Load More
+          </Button>
+        </Stack>
       )}
-    </Fragment>
+    </Container>
   )
 }
 
