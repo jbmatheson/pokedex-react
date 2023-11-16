@@ -15,7 +15,7 @@ yarn-error.log
 /coverage
 
 # production
-# /build -- commenting out since this can be host on Github Pages
+/build
 .netlify/
 
 # misc
