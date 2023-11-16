@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpokedex=self.webpackChunkpokedex||[]).push([[965],{5965:(e,n,s)=>{s.r(n),s.d(n,{default:()=>d});var o=s(7624),r=(s(821),s(7363)),c=s(2298);const d=()=>{const{t:e}=(0,r.$G)(["common"]);return(0,c.jsxs)(o.Z,{children:[(0,c.jsx)("div",{children:"404"}),(0,c.jsx)("div",{children:e("common:errors.page-not-found")})]})}}}]);
-//# sourceMappingURL=965.7582e990.chunk.js.map
