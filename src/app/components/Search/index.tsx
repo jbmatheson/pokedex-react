@@ -70,7 +70,7 @@ const Header: React.FC = () => {
         }}
       >
         <Box padding={2}>
-          <RouterLink to="/" hoverStyle="none" accessibilityLabel={t('common:home')}>
+          <RouterLink to="/">
             <PokeballSvgPath />
           </RouterLink>
         </Box>

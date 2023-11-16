@@ -100,13 +100,7 @@ const HomePage: React.FunctionComponent = () => {
         <PokemonGrid pokemons={pokemonList} loadItems={handleFetch} loading={loading} />
 
         {error && !loading && (
-          <Suspense
-            fallback={
-              <Box paddingY={6}>
-                {/* <Spinner accessibilityLabel={t('common:loading')} show /> */}
-              </Box>
-            }
-          >
+          <Suspense fallback={<Box paddingY={6}>{/* <Spinner show /> */}</Box>}>
             <ErrorToast message={error} />
           </Suspense>
         )}

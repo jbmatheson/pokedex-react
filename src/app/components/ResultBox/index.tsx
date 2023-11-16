@@ -32,7 +32,7 @@ const ResultBox: React.FunctionComponent<IProps> = (props) => {
                 // margin={1}
                 // flex="grow"
               >
-                <RouterLink to={`/pokemon/${pokemonName}/`} hoverStyle="none">
+                <RouterLink to={`/pokemon/${pokemonName}/`}>
                   <Box padding={2} alignItems="center" display="flex">
                     <Box paddingX={2}>
                       {/* <Avatar
@@ -56,7 +56,7 @@ const ResultBox: React.FunctionComponent<IProps> = (props) => {
       ) : (
         !searching && <div>{t('common:errors:no-records-found')}</div>
       )}
-      {/* <Spinner accessibilityLabel={t('common:loading')} show={searching} /> */}
+      {/* <Spinner show={searching} /> */}
     </Box>
   )
 }

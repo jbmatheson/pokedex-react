@@ -29,7 +29,7 @@ const PokemonCard: React.FC<IProps> = (props) => {
   return (
     // <Box margin={1} rounding={2} padding={2} borderStyle="sm">
     <Box>
-      <RouterLink to={`/pokemon/${name}/`} hoverStyle="none">
+      <RouterLink to={`/pokemon/${name}/`}>
         {/* <Card image={<Avatar name={name} src={image} />}> */}
         <Card>
           <Box paddingX={3} paddingY={2}>

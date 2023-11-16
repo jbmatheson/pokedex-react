@@ -45,7 +45,7 @@ const EvolutionBox: React.FunctionComponent<IProps> = (props) => {
       // alignItems="center"
       >
         <div>
-          <RouterLink to={`/pokemon/${species}/`} hoverStyle="none" accessibilityLabel={species}>
+          <RouterLink to={`/pokemon/${species}/`}>
             <Box
             // margin={1}
             // rounding={2}
@@ -72,12 +72,7 @@ const EvolutionBox: React.FunctionComponent<IProps> = (props) => {
               const evolutionImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionID[1]}.png`
 
               return (
-                <RouterLink
-                  key={evolutionName}
-                  to={`/pokemon/${evolutionName}/`}
-                  hoverStyle="none"
-                  accessibilityLabel={evolutionName}
-                >
+                <RouterLink key={evolutionName} to={`/pokemon/${evolutionName}/`}>
                   <Box
                   // margin={1}
                   // key={evolutionName}
@@ -113,12 +108,7 @@ const EvolutionBox: React.FunctionComponent<IProps> = (props) => {
                 const evolutionImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionID[1]}.png`
 
                 return (
-                  <RouterLink
-                    key={evolutionName}
-                    to={`/pokemon/${evolutionName}/`}
-                    hoverStyle="none"
-                    accessibilityLabel={evolutionName}
-                  >
+                  <RouterLink key={evolutionName} to={`/pokemon/${evolutionName}/`}>
                     <Box
                     // margin={1}
                     // rounding={2}

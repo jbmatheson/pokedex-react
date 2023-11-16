@@ -73,7 +73,7 @@ const PokemonPage: React.FunctionComponent = () => {
               // right
               // bottom
               >
-                {/* <Spinner accessibilityLabel={t('common:loading')} show /> */}
+                {/* <Spinner  show /> */}
               </Box>
             }
           >
@@ -94,7 +94,7 @@ const PokemonPage: React.FunctionComponent = () => {
               // right
               // bottom
               >
-                {/* <Spinner accessibilityLabel={t('common:loading')} show /> */}
+                {/* <Spinner  show /> */}
               </Box>
             }
           >
@@ -110,7 +110,7 @@ const PokemonPage: React.FunctionComponent = () => {
           // justifyContent="center"
           // direction="column"
           >
-            {/* <Spinner accessibilityLabel={t('common:loading')} show={loading} /> */}
+            {/* <Spinner show={loading} /> */}
           </Box>
         )}
       </Box>
