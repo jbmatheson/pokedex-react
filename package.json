@@ -8,7 +8,9 @@
     "test": "react-scripts --openssl-legacy-provider test",
     "format": "prettier --write \"**/*.ts{,x}\"",
     "lint": "tsc --noEmit && eslint \"**/*.ts{,x}\"",
-    "lint:fix": "tsc --noEmit && eslint \"**/*.ts{,x}\" --fix"
+    "lint:fix": "tsc --noEmit && eslint \"**/*.ts{,x}\" --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build" 
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -67,6 +69,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
+    "gh-pages": "^6.0.0",
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5"
   },
@@ -76,6 +79,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "https://jbmatheson.github.io/pokedex-react/",
   "browserslist": {
     "production": [
       ">0.2%",
