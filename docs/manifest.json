@@ -1,6 +1,6 @@
 {
-  "short_name": "POKéDEX",
-  "name": "POKéDEX\nThe POKéMON Encyclopædia",
+  "short_name": "Pokedex",
+  "name": "Pokedex application",
   "icons": [
     {
       "src": "favicon.ico",
