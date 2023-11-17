@@ -24,7 +24,7 @@
 1. Pull down this repo 
 2. Run `pnpm i` or `npm i`
 
-Alternatively, I have deployed the app throuh my Github pages. 
+Alternatively, I have deployed the app through my Github pages. 
 You can demo it here without installing locally:
 
 https://jbmatheson.github.io/pokedex-react/
