@@ -31,6 +31,12 @@
 2. Lint with `pnpm lint` or `npm run lint`
 3. Run Tests with `pnpm test` or `npm run test`
 
+## Testing
+1. Navigate to `localhost:3000`
+2. Have fun with the Pokedex.
+3. Test it in mobile and desktop
+4. Break lots of things! j/k :D
+
 ## Notes:
 1. Since this is in Strict Mode and running React 18 you will notice that the initial fetch is called twice (this is a known development build issue in React 18 and Strict Mode). If you want to serve this to a static server you can run `pnpm build`. This will create a production build. The issue does not happen in production mode.
 2. I wanted to add a lot more styling fun (light/dark mode, Pokemon variant selector, sorting for the initial grid but time did not permit).
