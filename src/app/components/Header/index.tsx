@@ -79,7 +79,7 @@ const Header: React.FC = () => {
             justifyContent: { xs: 'center', lg: 'space-between' },
           }}
         >
-          <RouterLink to="/" alt="home link">
+          <RouterLink to="/pokedex-react/" alt="home link">
             <Box
               component="img"
               src={pokeDex}

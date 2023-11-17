@@ -93,7 +93,7 @@ const PokemonDetails: React.FC<IProps> = (props) => {
               height: '3rem',
             }}
           >
-            <RouterLink to={`/`}>
+            <RouterLink to={`/pokedex-react/`}>
               <Box sx={{ color: 'white' }}>Back</Box>
             </RouterLink>
           </Button>
