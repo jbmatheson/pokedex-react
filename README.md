@@ -35,7 +35,7 @@ https://jbmatheson.github.io/pokedex-react/
 3. Run Tests with `pnpm test` or `npm run test`
 
 ## Testing
-1. Navigate to `localhost:3000`
+1. Navigate to `localhost:3000` or visit https://jbmatheson.github.io/pokedex-react/ if you just want to see it running...
 2. Have fun with the Pokedex.
 3. Test it in mobile and desktop
 4. Break lots of things! j/k :D
