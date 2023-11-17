@@ -1,3 +1,5 @@
+# Technical Assessment Test - Pokedex Application
+
 ## Requirements Met
 - Use the Pokemon API to make API requests for data https://pokeapi.co/docs/v2.
 - Able to search for any Pokemon.
