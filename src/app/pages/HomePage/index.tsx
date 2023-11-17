@@ -119,7 +119,7 @@ const HomePage: React.FunctionComponent = () => {
                       variant="contained"
                       color="success"
                       onClick={() => {
-                        navigate(`/pokemon/${name}`)
+                        navigate(`/pokedex-react/pokemon/${name}`)
                       }}
                       sx={{
                         display: 'flex',
