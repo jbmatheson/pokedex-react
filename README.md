@@ -1,5 +1,3 @@
-
-
 ## Requirements Met
 - Use the Pokemon API to make API requests for data https://pokeapi.co/docs/v2.
 - Able to search for any Pokemon.
@@ -25,6 +23,11 @@
 ## Installation
 1. Pull down this repo 
 2. Run `pnpm i` or `npm i`
+
+Alternatively, i have app throuh my Github pages. 
+You can demo it here without installing locally:
+
+https://jbmatheson.github.io/pokedex-react/
 
 ## Commands
 1. Serve locally with `pnpm start` or `npm run start`
