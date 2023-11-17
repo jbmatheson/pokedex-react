@@ -1,9 +1,9 @@
 
 
 ## Requirements Met
-• Use the Pokemon API to make API requests for data https://pokeapi.co/docs/v2.
-• Able to search for any Pokemon.
-• Able to see a history of what has been searched and revisit at anytime.
+- Use the Pokemon API to make API requests for data https://pokeapi.co/docs/v2.
+- Able to search for any Pokemon.
+- Able to see a history of what has been searched and revisit at anytime.
 
 ## Bonus Features Met
 1. Able to see details about abilities, moves, species, sprites and types upon searching. You can see all this on the Pokemon's details page.
