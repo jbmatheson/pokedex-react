@@ -47,7 +47,7 @@ const PokemonGrid: React.FunctionComponent<IProps> = (props) => {
             variant="contained"
             color="error"
             onClick={loadItems}
-            sx={{ alignSelf: 'center', marginTop: '1rem', marginBottom: '2.5rem' }}
+            sx={{ alignSelf: 'center', marginTop: '1rem', marginBottom: '8rem' }}
           >
             Load More
           </Button>
