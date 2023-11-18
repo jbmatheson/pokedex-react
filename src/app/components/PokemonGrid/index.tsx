@@ -25,8 +25,6 @@ const PokemonGrid: React.FunctionComponent<IProps> = (props) => {
         <Stack sx={{ flexDirection: 'column', gap: '1rem', marginTop: '2.5rem' }}>
           <Box
             sx={{
-              maxHeight: '70vh',
-              overflow: 'auto',
               display: 'flex',
               justifyContent: 'center',
               maxWidth: '80rem',
