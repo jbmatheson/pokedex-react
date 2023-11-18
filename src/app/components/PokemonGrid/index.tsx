@@ -1,9 +1,8 @@
-import { Box, Button, Container, Grid, Stack } from '@mui/material'
+import { Box, Button, CircularProgress, Container, Grid, Stack } from '@mui/material'
 import React, { createRef } from 'react'
 
 import { Pokemon } from '../../types/pokemon.types'
 import PokemonCard from '../PokemonCard'
-import Spinner from 'react-spinner'
 
 interface IProps {
   pokemons: Pokemon[]
@@ -17,42 +16,37 @@ const PokemonGrid: React.FunctionComponent<IProps> = (props) => {
 
   return (
     <Container sx={{ paddingX: '1rem', width: '100%', display: 'flex', justifyContent: 'center' }}>
-      {loading ? (
-        <Box sx={{ paddingY: '3rem' }}>
-          <Spinner />
+      <Stack sx={{ flexDirection: 'column', gap: '1rem', marginTop: '2.5rem' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            maxWidth: '80rem',
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+          }}
+          ref={scrollContainerRef}
+        >
+          <Grid container spacing={2}>
+            {pokemons.map((pokemon, index) => (
+              <Grid key={index} item xs={6} lg={4} xl={3}>
+                <PokemonCard pokemon={pokemon} />
+              </Grid>
+            ))}
+          </Grid>
         </Box>
-      ) : (
-        <Stack sx={{ flexDirection: 'column', gap: '1rem', marginTop: '2.5rem' }}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              maxWidth: '80rem',
-              scrollbarWidth: 'none',
-              '&::-webkit-scrollbar': {
-                display: 'none',
-              },
-            }}
-            ref={scrollContainerRef}
-          >
-            <Grid container spacing={2}>
-              {pokemons.map((pokemon, index) => (
-                <Grid key={index} item xs={6} lg={4} xl={3}>
-                  <PokemonCard pokemon={pokemon} />
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-          <Button
-            variant="contained"
-            color="error"
-            onClick={loadItems}
-            sx={{ alignSelf: 'center', marginTop: '1rem', marginBottom: '8rem' }}
-          >
-            Load More
-          </Button>
-        </Stack>
-      )}
+        <Button
+          variant="contained"
+          color="error"
+          onClick={loadItems}
+          disabled={loading}
+          sx={{ alignSelf: 'center', marginTop: '1rem', marginBottom: '8rem' }}
+        >
+          {loading ? <CircularProgress size={20} /> : 'Load More'}
+        </Button>
+      </Stack>
     </Container>
   )
 }
