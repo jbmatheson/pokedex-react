@@ -16,10 +16,10 @@
 
 ## Tech used
 - React (CRA)
-- Redux
+- Redux (Also part of the CRA starter pack)
 - Recoil (Store search query)
 - Typescript
-- Material UI
+- Material UI (Core is part of the CRA starter pack. Added @mui/material separately)
 - React Testing Library
 
 ## Installation
