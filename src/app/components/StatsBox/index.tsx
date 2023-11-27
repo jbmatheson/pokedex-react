@@ -8,7 +8,7 @@ interface IProps {
   stats: object[]
 }
 
-const StatsBox: React.FunctionComponent<IProps> = (props) => {
+export const StatsBox: React.FunctionComponent<IProps> = (props) => {
   const { stats } = props
   return (
     <Box
