@@ -1,7 +1,8 @@
-import { Box, Divider, Tooltip } from '@mui/material'
-import React, { Fragment } from 'react'
+import { Box, Divider, LinearProgress } from '@mui/material'
 
+import React from 'react'
 import get from 'lodash/get'
+import theme from '../../styles/theme'
 import upperCase from 'lodash/upperCase'
 
 interface IProps {
@@ -39,23 +40,44 @@ export const StatsBox: React.FunctionComponent<IProps> = (props) => {
               sx={{
                 margin: '0 1rem',
                 display: 'flex',
-                justifyContent: 'between',
-                alignItems: 'stretch',
-                paddingY: '0.25rem',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingY: '0.35rem',
               }}
             >
-              <Box sx={{ paddingX: '.5rem' }}>
-                <div>{statName}</div>
+              <Box
+                sx={{
+                  display: 'flex',
+                  paddingX: '.5rem',
+                  justifyContent: 'flex-end',
+                  width: '100%',
+                }}
+              >
+                <Box>{statName}</Box>
               </Box>
 
-              <Box sx={{ paddingX: '.5rem' }}>
-                <Tooltip title={baseStat}>
-                  <Fragment>
-                    <progress className="progress is-primary" value={baseStat} max="300">
-                      {baseStat}%
-                    </progress>
-                  </Fragment>
-                </Tooltip>
+              <Box sx={{ position: 'relative', paddingX: '.5rem' }}>
+                <LinearProgress
+                  className="progress is-primary"
+                  value={baseStat}
+                  variant="determinate"
+                  sx={{ width: '300px', height: '1rem', borderRadius: '1rem' }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '-5px',
+                    bottom: '-7px',
+                    left: `calc(${baseStat}% - 10px)`,
+                    lineHeight: 'normal',
+                    backgroundColor: theme.palette.primary.main,
+                    padding: '0.285rem',
+                    borderRadius: '1rem',
+                    color: 'white',
+                  }}
+                >
+                  {baseStat}
+                </Box>
               </Box>
             </Box>
           )

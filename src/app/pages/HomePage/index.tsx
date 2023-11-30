@@ -1,29 +1,25 @@
-import { Box, Button, FormLabel, TextField } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import {
   FETCH_POKEDEX_ERROR,
   FETCH_POKEDEX_REQUEST,
   FETCH_POKEDEX_SUCCESS,
 } from '../../constants/pokedex.constants'
 import React, { Fragment, Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react'
-import { SEARCH_ERROR, SEARCH_SUCCESS } from '../../constants/search.constants'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from '../../reducers'
 import Spinner from 'react-spinner'
 import { fetchPokemonsAction } from '../../actions/pokedex.action'
 import isEmpty from 'lodash/isEmpty'
-import { searchAction } from '../../actions/search.action'
 import { searchQueriesState } from '../../recoil/searchQueries'
 import { useNavigate } from 'react-router-dom'
-import { useRecoilState } from 'recoil'
-import { useTranslation } from 'react-i18next'
+import { useRecoilValue } from 'recoil'
 
 // Lazy Load
 const PokemonGrid = lazy(() => import('../../components/PokemonGrid'))
 const ErrorToast = lazy(() => import('../../components/ErrorToast'))
 
 const HomePage: React.FunctionComponent = () => {
-  const { t } = useTranslation(['common'])
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -32,34 +28,7 @@ const HomePage: React.FunctionComponent = () => {
   const [searchError, setSearchError] = useState('')
   const [searching, setSearching] = useState(false)
 
-  const [searchQueries, setSearchQueries] = useRecoilState(searchQueriesState)
-
-  const search = () => {
-    setSearching(true)
-    const url = `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`
-
-    searchAction(url)
-      .then((res) => {
-        dispatch({
-          type: SEARCH_SUCCESS,
-          payload: res,
-        })
-
-        setSearching(false)
-
-        setSearchQueries((prev: any) => ({ ...prev, [query.toLowerCase()]: query }))
-        navigate(`/pokemon/${query.toLowerCase()}`)
-      })
-      .catch((err) => {
-        dispatch({
-          type: SEARCH_ERROR,
-          payload: 'Oops! Something went wrong. Please try again later.',
-        })
-
-        setSearchError(t('common:errors.search-error'))
-        setSearching(false)
-      })
-  }
+  const searchQueries = useRecoilValue(searchQueriesState)
 
   const { pokemonList, url, error, loading } = useSelector((state: RootState) => ({
     pokemonList: state.pokedex.pokemonList,
@@ -107,66 +76,12 @@ const HomePage: React.FunctionComponent = () => {
         <Box sx={{ display: 'flex', gap: '1rem', flexDirection: 'column', alignItems: 'center' }}>
           <Box
             sx={{
-              fontSize: { xs: '1.85rem', lg: '2.5rem' },
-              maxWidth: '24ch',
-              fontWeight: 'bold',
-              textAlign: 'center',
-            }}
-          >
-            Enter a Pokemon name to view in detail
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              paddingX: '1rem',
-              gap: '1rem',
-              alignItems: 'center',
-              flexDirection: { xs: 'column', lg: 'row' },
-            }}
-            ref={anchorRef}
-          >
-            <Box sx={{ display: 'flex', gap: '1rem', alignItems: 'center', position: 'relative' }}>
-              <TextField
-                id="searchField"
-                placeholder="Search"
-                variant="outlined"
-                sx={{ backgroundColor: 'white', borderRadius: '5px', width: '20rem' }}
-                onChange={(e) => {
-                  setQuery(e.target.value)
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault()
-                    e.stopPropagation()
-                    search()
-                  }
-                }}
-                value={query}
-                error={!!searchError}
-              />
-              {searchError && (
-                <FormLabel sx={{ color: 'red', position: 'absolute', bottom: '-24px' }}>
-                  {searchError}
-                </FormLabel>
-              )}
-            </Box>
-            <Button
-              disabled={searching || !query}
-              type="submit"
-              variant="contained"
-              color="primary"
-              onClick={search}
-              sx={{ display: 'flex' }}
-            >
-              Submit
-            </Button>
-          </Box>
-          <Box
-            sx={{
               display: 'flex',
               padding: '1rem',
               gap: '1rem',
+              fontStyle: 'italic',
               alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             {searchQueries && (
@@ -174,6 +89,7 @@ const HomePage: React.FunctionComponent = () => {
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
+
                   flexDirection: 'column',
                   gap: '1rem',
                   maxWidth: { xs: 'calc(100% - 2rem)', lg: '80rem' },
@@ -182,12 +98,12 @@ const HomePage: React.FunctionComponent = () => {
                 <Box
                   sx={{
                     fontWeight: 'semibold',
-                    maxWidth: { xs: '24ch', lg: '28ch' },
+                    maxWidth: { xs: 'unset', lg: '40ch' },
                     textAlign: 'center',
                     fontSize: { xs: '1rem', lg: '1.25rem' },
                   }}
                 >
-                  Click on of the previous searches to view it again in detail
+                  Click a previous search to view it again in detail.
                 </Box>
                 <Box
                   sx={{
@@ -211,7 +127,9 @@ const HomePage: React.FunctionComponent = () => {
                         padding: '.5rem 1rem .25rem 1rem',
                         color: 'white',
                         borderRadius: '.5rem',
+                        fontWeight: 'bold',
                         alignItems: 'center',
+                        filter: 'drop-shadow(2px 2px 5px rgba(0,0,0,.5))',
                       }}
                     >
                       {name}
@@ -225,14 +143,14 @@ const HomePage: React.FunctionComponent = () => {
 
         <Box
           sx={{
-            fontWeight: 'semibold',
-            marginTop: '2.5rem',
+            fontWeight: 'bold',
+            marginTop: { xs: '1rem', lg: '1.5rem' },
             maxWidth: { xs: '24ch', lg: '36ch' },
             textAlign: 'center',
             fontSize: { xs: '1.25rem', lg: '1.75rem' },
           }}
         >
-          Or, scroll down to view all the Pokemons. Click any card to view it in detail.
+          Click a card to view it in detail.
         </Box>
 
         <PokemonGrid pokemons={pokemonList} loadItems={handleFetch} loading={loading} />

@@ -6,6 +6,7 @@ import RouterLink from '../RouterLink'
 import capitalize from 'lodash/capitalize'
 import get from 'lodash/get'
 import { pokemonIDGenerator } from '../../../utils'
+import theme from '../../styles/theme'
 import { useTranslation } from 'react-i18next'
 
 interface IProps {
@@ -27,7 +28,16 @@ const PokemonCard: React.FC<IProps> = (props) => {
   const types = get(pokemon, ['types'])
 
   return (
-    <Box sx={{ margin: '0.5rem', borderRadius: '1rem' }}>
+    <Box
+      sx={{
+        margin: '0.5rem',
+        borderRadius: '1rem',
+        filter: 'drop-shadow(5px 5px 15px rgba(0,0,0,.23))',
+        ':hover': {
+          filter: 'drop-shadow(5px 5px 15px rgba(0,0,0,.75))',
+        },
+      }}
+    >
       <RouterLink to={`/pokemon/${name}/`}>
         <Card sx={{ borderRadius: '1rem' }}>
           <Box
@@ -38,13 +48,30 @@ const PokemonCard: React.FC<IProps> = (props) => {
               alignItems: 'center',
               justifyContent: 'center',
               flexDirection: 'column',
+              position: 'relative',
               paddingY: '2.5rem',
               display: 'flex',
               height: '140px',
               width: '100%',
             }}
           >
-            <Box sx={{ fontFamily: 'Roboto', paddingTop: '1rem' }}>{Number(pokemonID)}</Box>
+            <Box
+              sx={{
+                fontFamily: 'Roboto',
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                paddingTop: '1rem',
+                alignSelf: 'flex-start',
+                backgroundColor: theme.palette.success.main,
+                padding: '0.75rem',
+                borderTopLeftRadius: '1rem',
+                borderBottomRightRadius: '1rem',
+                color: 'white',
+              }}
+            >
+              # {Number(pokemonID)}
+            </Box>
             <Box sx={{ height: '140px', padding: '1rem' }}>
               <Box
                 component="img"

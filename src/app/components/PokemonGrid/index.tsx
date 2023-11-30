@@ -16,7 +16,7 @@ const PokemonGrid: React.FunctionComponent<IProps> = (props) => {
 
   return (
     <Container sx={{ paddingX: '1rem', width: '100%', display: 'flex', justifyContent: 'center' }}>
-      <Stack sx={{ flexDirection: 'column', gap: '1rem', marginTop: '2.5rem' }}>
+      <Stack sx={{ flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
         <Box
           sx={{
             display: 'flex',
@@ -31,7 +31,7 @@ const PokemonGrid: React.FunctionComponent<IProps> = (props) => {
         >
           <Grid container spacing={2}>
             {pokemons.map((pokemon, index) => (
-              <Grid key={index} item xs={6} lg={4} xl={3}>
+              <Grid key={index} item xs={12} lg={4}>
                 <PokemonCard pokemon={pokemon} />
               </Grid>
             ))}
