@@ -61,7 +61,11 @@ export const StatsBox: React.FunctionComponent<IProps> = (props) => {
                   className="progress is-primary"
                   value={baseStat}
                   variant="determinate"
-                  sx={{ width: '300px', height: '1rem', borderRadius: '1rem' }}
+                  sx={{
+                    minWidth: { xs: '183px', lg: '300px' },
+                    height: '1rem',
+                    borderRadius: '.25rem',
+                  }}
                 />
                 <Box
                   sx={{

@@ -1,4 +1,4 @@
-import { Box, Button, FormLabel, TextField } from '@mui/material'
+import { Box, Button, FormLabel, TextField, useMediaQuery } from '@mui/material'
 import React, { useRef, useState } from 'react'
 import { SEARCH_ERROR, SEARCH_SUCCESS } from '../../constants/search.constants'
 
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   const [searching, setSearching] = useState(false)
   const { t } = useTranslation(['common'])
   const navigate = useNavigate()
-  const isMobile = theme.breakpoints.down('lg')
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'))
 
   const dispatch = useDispatch()
 
@@ -53,6 +53,10 @@ const Header: React.FC = () => {
         setSearchError(t('Error. Please retry!'))
         setSearching(false)
       })
+  }
+
+  if (isMobile && window.location.pathname.includes('/pokemon/')) {
+    return <></>
   }
 
   return (
