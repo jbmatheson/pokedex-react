@@ -43,6 +43,7 @@ const App: React.FunctionComponent = () => {
                 >
                   <Routes>
                     <Route element={<HomePage />} path="/" />
+                    <Route element={<HomePage />} path="/pokedex-react" />
                     <Route element={<PokemonPage />} path="/pokemon/:slug" />
                     <Route element={<PageNotFound />} />
                   </Routes>
