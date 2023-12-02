@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpokedex=self.webpackChunkpokedex||[]).push([[462],{5462:(e,n,s)=>{s.r(n),s.d(n,{default:()=>r});var t=s(9741),c=(s(31),s(3164)),o=s(854);const r=()=>{const{t:e}=(0,c.$G)(["common"]);return(0,o.jsxs)(t.Z,{sx:{height:"80vh",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"},children:[(0,o.jsx)("div",{children:"404"}),(0,o.jsx)("div",{children:e("common:errors.page-not-found")})]})}}}]);
+//# sourceMappingURL=462.23e708e9.chunk.js.map
